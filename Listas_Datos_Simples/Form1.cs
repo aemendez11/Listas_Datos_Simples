@@ -21,9 +21,18 @@ namespace Listas_Datos_Simples
 
         private void buttonIngresar_Click(object sender, EventArgs e)
         {
-            //metodo de conversion 1
-            int numero = Convert.ToInt32(textBoxnumero.Text);
-            listaEntero.Add(numero);
+            int numero = 0;
+            bool seConvirtio = int.TryParse(textBoxnumero.Text, out numero);
+
+            if (seConvirtio)
+            {
+                listaEntero.Add(numero);
+                mostrar();
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un numero");
+            }
         }
         private void mostrar()
         {
